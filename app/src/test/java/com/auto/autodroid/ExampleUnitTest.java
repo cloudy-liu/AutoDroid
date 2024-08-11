@@ -1,4 +1,4 @@
-package com.example.testaccessibity;
+package com.auto.autodroid;
 
 import org.junit.Test;
 

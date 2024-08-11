@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.testaccessibity'
+    namespace 'com.auto.autodroid'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.testaccessibity"
+        applicationId "com.auto.autodroid"
         minSdk 24
         targetSdk 33
         versionCode 1
