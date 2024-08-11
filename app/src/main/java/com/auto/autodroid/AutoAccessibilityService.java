@@ -11,7 +11,7 @@ import android.view.accessibility.AccessibilityEvent;
 public class AutoAccessibilityService extends AccessibilityService {
     private static final String TAG = "cloudy/AutoAccessibilityService";
     private static final String WECHAT_READ_ACTIVITY = "com.tencent.weread.ReaderFragmentActivity";
-    private static int mCurPage = 0;
+    private int mCurPage = 0;
     private static final int MAX_PAGE_COUNT = 300;
     private boolean mSwipeLeft = true;
 
@@ -60,13 +60,14 @@ public class AutoAccessibilityService extends AccessibilityService {
             path.lineTo(900, 1000);
         }
 
-        //手势迟延为0ms,手势持续时间 500ms
+        //gesture latency=0ms, keep_time = 500ms
         GestureDescription.StrokeDescription swipeLeftStroke =
-                new GestureDescription.StrokeDescription(path, 0, 300);
+                new GestureDescription.StrokeDescription(path, 0, 100);
         GestureDescription.Builder builder = new GestureDescription.Builder();
         builder.addStroke(swipeLeftStroke);
         dispatchGesture(builder.build(), null, null);
-        Log.d(TAG, "scroll left done !");
+        String orientation = left ? "next" : "back";
+        Log.d(TAG, "scroll " + orientation + " done !!");
     }
 
     @Override
